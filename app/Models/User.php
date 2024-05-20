@@ -3,7 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\CivilStatus;
+use App\Enums\DocumentType;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -19,6 +24,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +33,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'birthday',
+        'document_type',
+        'document_number',
+        'civil_status',
+        'phone_one',
+        'phone_two',
+        'address',
         'email',
         'password',
     ];
@@ -53,6 +67,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'document_type' => DocumentType::class,
+        'civil_status' => CivilStatus::class,
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -63,5 +87,75 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the phone_one masked attribute.
+     */
+    public function getPhoneOneMaskedAttribute(): string
+    {
+        return sprintf(
+            '+%s %s %s %s',
+            substr($this->phone_one, 0, 2),
+            substr($this->phone_one, 2, 3),
+            substr($this->phone_one, 5, 3),
+            substr($this->phone_one, 8)
+        );
+    }
+
+    /**
+     * Get the phone_two masked attribute.
+     */
+    public function getPhoneTwoMaskedAttribute(): string
+    {
+        if (!$this->phone_two) return '';
+        return sprintf(
+            '+%s %s %s %s',
+            substr($this->phone_two, 0, 2),
+            substr($this->phone_two, 2, 3),
+            substr($this->phone_two, 5, 3),
+            substr($this->phone_two, 8)
+        );
+    }
+
+    /**
+     * Scope a query to only include buyers that match the search.
+     * 
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $search
+     * @return void
+     */
+    public function scopeSearch(Builder $query, string $search): void
+    {
+        if ($search)
+            $query->where('name', 'like', "%$search%")
+                ->orWhere('surname', 'like', "%$search%")
+                ->orWhere('email', 'like', "%$search%")
+                ->orWhere('document_number', 'like', "%$search%");
+    }
+
+    /**
+     * Scope a query to sort buyers by the specified column.
+     * 
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  string  $column
+     * @param  bool  $asc
+     * @return void
+     */
+    public function scopeSort(Builder $query, string $column = null, bool $asc): void
+    {
+        if ($column) $query->orderBy($column, $asc ? 'asc' : 'desc');
+    }
+
+    /**
+     * Scope a query to only include buyers that are trashed.
+     * 
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  bool  $onlyTrash
+     * @return void
+     */
+    public function scopeTrash(Builder $query, bool $onlyTrash): void
+    {
+        if ($onlyTrash) $query->onlyTrashed();
     }
 }

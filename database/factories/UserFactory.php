@@ -28,6 +28,14 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'surname' => $this->faker->lastName(),
+            'birthday' => $this->faker->date(),
+            'document_type' => $this->faker->randomElement(\App\Enums\DocumentType::cases()),
+            'document_number' => $this->faker->unique()->numberBetween(1, 999999),
+            'civil_status' => $this->faker->randomElement(\App\Enums\CivilStatus::cases()),
+            'phone_one' => $this->faker->phoneNumber(),
+            'phone_two' => $this->faker->phoneNumber(),
+            'address' => $this->faker->address(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

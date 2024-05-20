@@ -33,7 +33,7 @@
 
         .soft-scrollbar::-webkit-scrollbar-thumb {
             cursor: pointer;
-            background-color: #ffae35;
+            background-color: #16c716;
             border-radius: 2px;
         }
 
@@ -44,7 +44,7 @@
 
         .dark .soft-scrollbar::-webkit-scrollbar-thumb {
             cursor: pointer;
-            background-color: #df8d13;
+            background-color: #146814;
             border-radius: 2px;
         }
     </style>

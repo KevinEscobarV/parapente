@@ -40,7 +40,7 @@
             <x-logo-parapente class="w-32" />
 
             <div class="ml-3 flex items-center space-x-2 sm:space-x-4">
-                <a href="https://www.facebook.com/comercializadoragasas" target="_blank"
+                <a href="https://www.facebook.com/profile.php?id=100002907385730&mibextid=ZbWKwL" target="_blank"
                     class="text-white hover:scale-110 hover:text-lime-700 transition duration-500 ease-in-out">
                     <span class="sr-only">Facebook</span>
                     <x-icon-facebook class="h-8" />

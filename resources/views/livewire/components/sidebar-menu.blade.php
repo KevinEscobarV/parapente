@@ -24,6 +24,18 @@ x-data="{ open: $persist(false) }">
             <x-side-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" icon="chart-pie" wire:navigate>
                 <span x-show="open" x-transition.duration.500ms>Administración</span>
             </x-side-link>
+            <x-side-link href="{{ route('buyers') }}" :active="request()->routeIs('buyers*')" icon="megaphone" wire:navigate>
+                <span x-show="open" x-transition.duration.500ms>Clientes</span>
+            </x-side-link>
+            <x-side-link href="{{ route('users') }}" :active="request()->routeIs('users')" icon="rocket-launch" wire:navigate>
+                <span x-show="open" x-transition.duration.500ms>Pilotos</span>
+            </x-side-link>
+            <x-side-link href="#" icon="paper-airplane" wire:navigate>
+                <span x-show="open" x-transition.duration.500ms>Vuelos</span>
+            </x-side-link>
+            <x-side-link href="{{ route('weather.index') }}" :active="request()->routeIs('weather.index')" icon="sun" wire:navigate>
+                <span x-show="open" x-transition.duration.500ms>Clima</span>
+            </x-side-link>
         </nav>
 
         <!-- Sidebar footer -->
