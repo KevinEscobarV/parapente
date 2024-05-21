@@ -4,7 +4,7 @@ El siguiente proyecto esta enfocado en el desarrollo de una plataforma web para 
 
 ## Desarrolladores
 
-Adraiana Ardila
+Adriana Ardila
 Yesid Garcia
 
 ## License
