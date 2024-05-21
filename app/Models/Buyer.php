@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\CivilStatus;
 use App\Enums\DocumentType;
+use App\Enums\RH;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +25,7 @@ class Buyer extends Model
         'surnames',
         'email',
         'birthday',
+        'rh',
         'document_type',
         'document_number',
         'civil_status',
@@ -40,6 +42,7 @@ class Buyer extends Model
     protected $casts = [
         'document_type' => DocumentType::class,
         'civil_status' => CivilStatus::class,
+        'rh' => RH::class,
     ];
 
     /**

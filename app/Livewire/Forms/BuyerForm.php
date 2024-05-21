@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Enums\CivilStatus;
 use App\Enums\DocumentType;
+use App\Enums\RH;
 use App\Models\Buyer;
 use Illuminate\Validation\Rule;
 use Livewire\Form;
@@ -16,6 +17,7 @@ class BuyerForm extends Form
     public $surnames;
     public $email;
     public $birthday;
+    public $rh = RH::A_POSITIVE;
     public $document_type = DocumentType::CC;
     public $document_number;
     public $civil_status = CivilStatus::SINGLE;
@@ -30,6 +32,10 @@ class BuyerForm extends Form
             'surnames' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:buyers,email',
             'birthday' => 'required|date',
+            'rh' => [
+                'required',
+                Rule::enum(RH::class)
+            ],
             'document_type' => [
                 'required',
                 Rule::enum(DocumentType::class)
@@ -52,6 +58,10 @@ class BuyerForm extends Form
             'surnames' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:buyers,email,' . $this->buyer->id,
             'birthday' => 'required|date',
+            'rh' => [
+                'required',
+                Rule::enum(RH::class)
+            ],
             'document_type' => [
                 'required',
                 Rule::enum(DocumentType::class)
@@ -74,6 +84,7 @@ class BuyerForm extends Form
             'surnames' => 'apellidos',
             'email' => 'correo electrónico',
             'birthday' => 'fecha de nacimiento',
+            'rh' => 'grupo sanguíneo',
             'document_type' => 'tipo de documento',
             'document_number' => 'número de documento',
             'civil_status' => 'estado civil',
@@ -90,6 +101,7 @@ class BuyerForm extends Form
             'surnames',
             'email',
             'birthday',
+            'rh',
             'document_type',
             'document_number',
             'civil_status',

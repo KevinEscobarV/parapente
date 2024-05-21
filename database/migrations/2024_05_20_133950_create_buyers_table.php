@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('surnames')->nullable();
             $table->string('email')->nullable();
             $table->date('birthday');
+            $table->string('rh')->nullable();
             $table->string('document_type')->nullable();
             $table->string('document_number')->unique()->nullable()->index();
             $table->string('civil_status')->nullable();

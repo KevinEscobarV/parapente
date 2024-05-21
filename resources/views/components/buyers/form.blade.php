@@ -20,6 +20,17 @@
     </div>
     <div class="col-span-6 sm:col-span-2">
         <x-wireui-select
+            label="Grupo Sanguineo"
+            placeholder="Seleccione un grupo sanguineo"
+            :options="App\Enums\RH::select()"
+            option-label="label"
+            option-value="value"
+            wire:model="form.rh"
+            autocomplete="off"
+        />
+    </div>    
+    <div class="col-span-6 sm:col-span-2">
+        <x-wireui-select
             label="Tipo de documento"
             placeholder="Seleccione un tipo de documento"
             :options="App\Enums\DocumentType::select()"

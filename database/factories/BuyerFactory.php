@@ -21,6 +21,7 @@ class BuyerFactory extends Factory
             'surnames' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'birthday' => $this->faker->date(),
+            'rh' => $this->faker->randomElement(\App\Enums\RH::cases()),
             'document_type' => $this->faker->randomElement(\App\Enums\DocumentType::cases()),
             'document_number' => $this->faker->unique()->numberBetween(1, 999999),
             'civil_status' => $this->faker->randomElement(\App\Enums\CivilStatus::cases()),

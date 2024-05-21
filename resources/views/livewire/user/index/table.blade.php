@@ -19,14 +19,23 @@
                     <x-table.sortable column="email" :$sortCol :$sortAsc>
                         Correo
                     </x-table.sortable>
+                    <x-table.sortable column="Rol" :$sortCol :$sortAsc>
+                        Rol
+                    </x-table.sortable>
                     <x-table.sortable column="document_type" :$sortCol :$sortAsc>
                         Tipo
                     </x-table.sortable>
                     <x-table.sortable column="document_number" :$sortCol :$sortAsc>
                         Documento
                     </x-table.sortable>
+                    <x-table.sortable column="license" :$sortCol :$sortAsc>
+                        Licencia
+                    </x-table.sortable>
                     <x-table.sortable column="civil_status" :$sortCol :$sortAsc>
                         <div class="whitespace-nowrap">Estado Civil</div>
+                    </x-table.sortable>
+                    <x-table.sortable column="rh" :$sortCol :$sortAsc>
+                        <div class="whitespace-nowrap">RH</div>
                     </x-table.sortable>
                     <x-table.th>
                         Contacto
@@ -59,13 +68,22 @@
                             {{ $user->email }}
                         </x-table.td>
                         <x-table.td>
+                            {{ $user->name_role }}
+                        </x-table.td>
+                        <x-table.td>
                             {{ $user->document_type->label() }}
                         </x-table.td>
                         <x-table.td>
                             {{ $user->document_number }}
                         </x-table.td>
                         <x-table.td>
+                            {{ $user->license }}
+                        </x-table.td>
+                        <x-table.td>
                             {{ $user->civil_status->label() }}
+                        </x-table.td>
+                        <x-table.td>
+                            {{ $user->rh->label() }}
                         </x-table.td>
                         <x-table.td>
                             <div class="flex flex-col gap-1">

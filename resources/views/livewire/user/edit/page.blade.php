@@ -8,7 +8,7 @@
     <div class="col-span-12 lg:col-span-7">
         <x-card>
             <form wire:submit.prevent="save">
-                <x-users.form />
+                <x-users.form :$roles />
                 <div class="flex items-center justify-end gap-2 mt-6">
                     <x-wireui-button lg amber label="Volver" href="{{ route('users') }}" icon="rewind" wire:navigate />
                     <x-wireui-button lg type="submit" spinner="save" lime label="Actualizar Usuario" icon="save-as" />

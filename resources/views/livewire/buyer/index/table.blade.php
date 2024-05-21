@@ -28,6 +28,9 @@
                     <x-table.sortable column="civil_status" :$sortCol :$sortAsc>
                         <div class="whitespace-nowrap">Estado Civil</div>
                     </x-table.sortable>
+                    <x-table.sortable column="rh" :$sortCol :$sortAsc>
+                        <div class="whitespace-nowrap">RH</div>
+                    </x-table.sortable>
                     <x-table.th>
                         Contacto
                     </x-table.th>
@@ -66,6 +69,9 @@
                         </x-table.td>
                         <x-table.td>
                             {{ $buyer->civil_status->label() }}
+                        </x-table.td>
+                        <x-table.td>
+                            {{ $buyer->rh->label() }}
                         </x-table.td>
                         <x-table.td>
                             <div class="flex flex-col gap-1">

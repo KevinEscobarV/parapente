@@ -30,6 +30,8 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'surname' => $this->faker->lastName(),
             'birthday' => $this->faker->date(),
+            'rh' => $this->faker->randomElement(\App\Enums\RH::cases()),
+            'license' => 'COL-'.$this->faker->unique()->numberBetween(1, 99999).'-'.$this->faker->randomElement(['PG', 'AL', 'PT']),
             'document_type' => $this->faker->randomElement(\App\Enums\DocumentType::cases()),
             'document_number' => $this->faker->unique()->numberBetween(1, 999999),
             'civil_status' => $this->faker->randomElement(\App\Enums\CivilStatus::cases()),

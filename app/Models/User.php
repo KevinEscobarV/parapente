@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\CivilStatus;
 use App\Enums\DocumentType;
+use App\Enums\RH;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -35,6 +36,8 @@ class User extends Authenticatable
         'name',
         'surname',
         'birthday',
+        'rh',
+        'license',
         'document_type',
         'document_number',
         'civil_status',
@@ -74,6 +77,7 @@ class User extends Authenticatable
     protected $casts = [
         'document_type' => DocumentType::class,
         'civil_status' => CivilStatus::class,
+        'rh' => RH::class,
     ];
 
     /**
@@ -87,6 +91,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the name role attribute.
+     */
+    public function getNameRoleAttribute(): string
+    {
+        return $this->roles->pluck('display_name')->join(', ');
     }
 
     /**
