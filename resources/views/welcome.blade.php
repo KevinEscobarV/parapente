@@ -74,7 +74,7 @@
                 </h4>
                 <div class="grid grid-cols-7 mt-12 gap-6">
                     <div class="col-span-8 sm:col-span-3">
-                        <img src="{{ asset('img/1.png') }}" alt="foto6" class="rounded-xl">
+                        <img src="{{ asset('img/ga.jpg') }}" alt="foto6" class="rounded-xl">
                     </div>
                     <div class="col-span-4 flex flex-col gap-4 text-left">
                         <header>
