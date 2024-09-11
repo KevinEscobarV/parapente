@@ -4,27 +4,17 @@
             <div class="lg:w-1/4 md:w-1/2 w-full sm:px-4">
                 <x-mark-center class="w-48 text-white" />
                 <div class="flex mt-5 items-center space-x-2 sm:space-x-4">
-                    <a href="https://www.facebook.com/paulina.suarez.7792" target="_blank"
+                    <a href="https://web.facebook.com/GASASAguazulOficial" target="_blank"
                         class="text-white hover:scale-110 transition duration-500 ease-in-out">
                         <span class="sr-only">Facebook</span>
                         <x-icon-facebook class="h-8" />
                     </a>
-                    <a href="https://www.instagram.com/paulinasuarezroldan/" target="_blank"
+                    <a href="https://www.instagram.com/ga_sas_aguazul/?hl=es-la" target="_blank"
                         class="text-white hover:scale-110 transition duration-500 ease-in-out">
                         <span class="sr-only">Instagram</span>
                         <x-icon-instagram class="h-8" />
                     </a>
-                    <a href="https://www.tiktok.com/@paulinasuarez084" target="_blank"
-                        class="text-white hover:scale-110 transition duration-500 ease-in-out">
-                        <span class="sr-only">TikTok</span>
-                        <x-icon-tiktok class="h-8" />
-                    </a>
-                    <a href="https://twitter.com/paulinasuarez49" target="_blank"
-                        class="text-white hover:scale-110 transition duration-500 ease-in-out">
-                        <span class="sr-only">Twitter</span>
-                        <x-icon-twitter class="h-8" />
-                    </a>
-                    <a href="https://wa.me/3112301205" target="_blank"
+                    <a href="https://wa.me/message/7MKTPOCQMHWHK1?src=qr&fbclid=IwZXh0bgNhZW0CMTAAAR1hZUS6SdN31HrVrndmcotgN5tUZMOHJKxGy2Iaq1sQJvovUGlgT1bMRvs_aem_Ab1Y7HNNENsNpXbwRdUsfaEjlxVTHCRs1D1La2DsNjYz9j7Jr5-gNDlVwuR3aLzzLut9pCiX3jtNztF3DUpo_cXI" target="_blank"
                         class="text-white hover:scale-110 transition duration-500 ease-in-out">
                         <span class="sr-only">WhatsApp</span>
                         <x-icon-whatsapp class="h-8" />
@@ -33,7 +23,7 @@
                 <h2 class="font-bold mt-4 text-white tracking-widest text-xl mb-3">Contactos</h2>
                 <nav class="list-none space-y-2">
                     <li>
-                        <p class="text-gray-100 hover:text-white">+57 311-230-1205</p>
+                        <p class="text-gray-100 hover:text-white">+57 320-734-5009</p>
                     </li>
                 </nav>
             </div>
