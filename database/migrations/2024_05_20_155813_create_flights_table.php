@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete()->cascadeOnUpdate();
+            $table->string('status')->default(App\Enums\FlightStatus::Scheduled);
+            $table->time('time')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

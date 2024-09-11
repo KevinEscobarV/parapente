@@ -31,4 +31,11 @@ return [
         ],
     ],
 
+    'payu' => [
+        'base_uri' => env('PAYU_BASE_URI'),
+        'key' => env('PAYU_KEY'),
+        'merchant_id' => env('PAYU_MERCHANT_ID'),
+        'account_id' => env('PAYU_ACCOUNT_ID'),
+    ],
+
 ];
